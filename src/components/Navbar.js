@@ -1,7 +1,7 @@
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      <div className="container">
+      <div className="container-fluid mx-5">
         <a className="navbar-brand" href="/#">
           Navbar
         </a>
