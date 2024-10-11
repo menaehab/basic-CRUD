@@ -2,10 +2,7 @@ import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
-    <div
-      className="d-flex flex-column bg-light p-3 sidebar"
-      style={{ height: "100vh" }}
-    >
+    <div className="sidebar col-md-3 col-lg-2 p-3" style={{ height: "100vh" }}>
       <h5>Menu</h5>
       <ul className="nav flex-column">
         <li className="nav-item">
