@@ -4,13 +4,28 @@ import { Link } from "react-router-dom";
 function Products() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
+    getAllProduct();
+  }, []);
+  const getAllProduct = () => {
     fetch("http://localhost:9000/products")
       .then((response) => response.json())
       .then((products) => setProducts(products));
-  }, []);
+  };
   const truncate = (text, length) => {
     return text.length > length ? `${text.substr(0, length)}...` : text;
   };
+  const deleteProduct = (id) => {
+    fetch(`http://localhost:9000/products/${id}`, {
+      method: "DELETE"
+    })
+      .then((response) => response.json())
+      .then(() => {
+        const updatedProducts = products.filter((product) => product.id !== id);
+        setProducts(updatedProducts);
+        getAllProduct();
+      });
+  };
+
   return (
     <>
       <div>
@@ -47,12 +62,12 @@ function Products() {
                     >
                       Edit
                     </Link>
-                    <Link
-                      to={`/products/delete/${product.id}`}
+                    <button
+                      onClick={() => deleteProduct(product.id)}
                       className="btn btn-danger mx-1 btn-sm"
                     >
                       Delete
-                    </Link>
+                    </button>
                   </td>
                 </tr>
               );
