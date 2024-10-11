@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -15,15 +16,29 @@ function Products() {
     return text.length > length ? `${text.substr(0, length)}...` : text;
   };
   const deleteProduct = (id) => {
-    fetch(`http://localhost:9000/products/${id}`, {
-      method: "DELETE"
-    })
-      .then((response) => response.json())
-      .then(() => {
-        const updatedProducts = products.filter((product) => product.id !== id);
-        setProducts(updatedProducts);
-        getAllProduct();
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((data) => {
+      if (data.isConfirmed) {
+        fetch(`http://localhost:9000/products/${id}`, {
+          method: "DELETE"
+        })
+          .then((response) => response.json())
+          .then(() => {
+            const updatedProducts = products.filter(
+              (product) => product.id !== id
+            );
+            setProducts(updatedProducts);
+            getAllProduct();
+          });
+      }
+    });
   };
 
   return (

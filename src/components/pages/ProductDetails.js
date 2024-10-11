@@ -17,7 +17,7 @@ function ProductDetails() {
             <div className="col-md-6">
               <h5 className="card-title">{product.title}</h5>
               <p className="card-text">
-                <strong>Price:</strong> ${product.price.toFixed(2)}
+                <strong>Price:</strong> ${Number(product.price).toFixed(2)}
               </p>
               <p className="card-text">
                 <strong>Description:</strong> {product.description}
