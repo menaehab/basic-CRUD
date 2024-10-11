@@ -1,7 +1,9 @@
 import "./App.css";
-import Home from "./components/Home";
+import Home from "./components/pages/Home";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/SideBar";
+import { Route, Routes } from "react-router-dom";
+import Products from "./components/pages/ProductsPage";
 
 function App() {
   return (
@@ -12,7 +14,10 @@ function App() {
           <Sidebar />
         </div>
         <div className="col-10">
-          <Home />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/products" element={<Products />} />
+          </Routes>
         </div>
       </div>
     </div>

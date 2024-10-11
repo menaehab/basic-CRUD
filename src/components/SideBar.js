@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Sidebar() {
   return (
     <div
@@ -7,24 +9,14 @@ function Sidebar() {
       <h5>Menu</h5>
       <ul className="nav flex-column">
         <li className="nav-item">
-          <a className="nav-link text-black active" href="/#">
+          <Link className="nav-link text-black active" to="/">
             Home
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-black" href="/#">
-            About
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link text-black" href="/#">
-            Services
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link text-black" href="/#">
-            Contact
-          </a>
+          <Link className="nav-link text-black" to="/products">
+            Products
+          </Link>
         </li>
       </ul>
     </div>
