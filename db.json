@@ -1,7 +1,6 @@
 {
   "products": [
     {
-      "id": "1",
       "title": "Sony WH-1000XM3 Bluetooth Wireless Over Ear Headphones with Mic (Silver)",
       "image": "https://storage.googleapis.com/fir-auth-1c3bc.appspot.com/1692947383286-714WUJlhbLS._SL1500_.jpg",
       "price": 773,
@@ -10,7 +9,8 @@
       "model": "WH-1000XM3",
       "color": "silver",
       "category": "audio",
-      "discount": 11
+      "discount": "30",
+      "id": "1"
     },
     {
       "id": "2",
