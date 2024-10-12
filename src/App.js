@@ -2,7 +2,7 @@ import "./App.css";
 import Home from "./components/pages/Home";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/SideBar";
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import Products from "./components/pages/ProductsPage";
 import AddProduct from "./components/pages/AddProduct";
 import ProductDetails from "./components/pages/ProductDetails";
@@ -17,10 +17,12 @@ function App() {
         <div className="content col-md-9 col-lg-10">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/products/add" element={<AddProduct />} />
-            <Route path="/products/edit/:productId" element={<EditProduct />} />
-            <Route path="/products/:productId" element={<ProductDetails />} />
+            <Route path="/products" element={<Outlet />}>
+              <Route path="" element={<Products />} />
+              <Route path="add" element={<AddProduct />} />
+              <Route path="edit/:productId" element={<EditProduct />} />
+              <Route path=":productId" element={<ProductDetails />} />
+            </Route>
           </Routes>
         </div>
       </div>
